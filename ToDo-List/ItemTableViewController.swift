@@ -18,10 +18,15 @@ class ItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //loadSampleItems()
         
         navigationItem.leftBarButtonItem = editButtonItem
+        
+        if let savedItems = loadItems() {
+            print(savedItems)
+            items += savedItems
+        } else {
+            print("\(NSDate()) nothing to load")
+        }
     }
 
     // MARK: - Table view data source
@@ -58,6 +63,8 @@ class ItemTableViewController: UITableViewController {
                 let newIndexPath = IndexPath(row: items.count, section: 0)
                 items.append(item!)
                 tableView.insertRows(at: [newIndexPath], with: .bottom)
+                saveItems()
+                print("item added")
             }
         }
     }
@@ -76,7 +83,9 @@ class ItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             items.remove(at:indexPath.row)
+            saveItems()
             tableView.deleteRows(at: [indexPath], with: .fade)
+            print("item deleted")
         } else if editingStyle == .insert {
             
         }    
@@ -114,5 +123,49 @@ class ItemTableViewController: UITableViewController {
         }
     }
     
+    func saveItems() {
+        
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: items, requiringSecureCoding: false)
+            try data.write(to: Item.ArchiveURL)
+            print("Items successfully saved.")
+        } catch {
+            print("Failed to save items...")
+        }
+    }
+    
 
+    /*func loadItems() -> [Item]? {
+        if let nsData = NSData(contentsOf: Item.ArchiveURL) {
+            let data = Data(referencing: nsData)
+            
+            if let loadedItems = NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data as Data) as? [Item] {
+                print(loadedItems)
+                return loadedItems
+            } else {
+                return []
+            }
+        
+        }
+    }*/
+    
+    
+    func loadItems() -> [Item]? {
+        
+        if let data = NSData(contentsOf: Item.ArchiveURL) {
+            do {
+                //let data = Data(referencing: nsData)
+                
+                if let loadedItems = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data as Data) as? [Item] {
+                    print(loadedItems)
+                    return loadedItems
+                }
+            } catch {
+                print("Couldn't read file")
+                return nil
+            }
+        }
+        return nil
+    }
+    
 }

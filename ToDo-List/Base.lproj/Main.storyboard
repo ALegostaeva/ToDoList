@@ -33,9 +33,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="yes" smartInsertDeleteType="yes"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="x4V-lr-HV1">
+                                <rect key="frame" x="73" y="356.5" width="229" height="311"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="311" id="YBR-A6-ALl"/>
+                                    <constraint firstAttribute="width" constant="229" id="sT8-TL-anu"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="x4V-lr-HV1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3ee-Vj-JFt"/>
+                            <constraint firstItem="x4V-lr-HV1" firstAttribute="top" secondItem="nx3-5M-yDo" secondAttribute="bottom" constant="8" id="GWc-xC-gW3"/>
                             <constraint firstItem="nx3-5M-yDo" firstAttribute="top" secondItem="eP1-Dj-6AU" secondAttribute="bottom" constant="15.5" id="KBR-za-czU"/>
                             <constraint firstItem="nx3-5M-yDo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="iwf-RV-x8k"/>
                             <constraint firstItem="eP1-Dj-6AU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mks-bJ-Gmn"/>
@@ -63,7 +72,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="osW-PR-IYa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3268" y="134"/>
+            <point key="canvasLocation" x="3268" y="133.5832083958021"/>
         </scene>
         <!--My To Do list-->
         <scene sceneID="XP9-8z-Rnx">
@@ -151,6 +160,9 @@
             <point key="canvasLocation" x="2530" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="236.16000366210938" height="316.55999755859375"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zEK-lk-0JZ"/>
     </inferredMetricsTieBreakers>
