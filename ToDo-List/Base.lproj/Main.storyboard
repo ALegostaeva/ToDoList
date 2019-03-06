@@ -18,19 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do I need to do?" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nx3-5M-yDo">
-                                <rect key="frame" x="106" y="318.5" width="163" height="30"/>
-                                <accessibility key="accessibilityConfiguration" identifier="nameItem"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ToDo Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-Dj-6AU">
-                                <rect key="frame" x="148.5" y="282" width="78" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-Dj-6AU">
+                                <rect key="frame" x="165" y="282" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do I need to do?" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nx3-5M-yDo">
+                                <rect key="frame" x="87" y="318" width="200" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="nameItem">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                </accessibility>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="yes" smartInsertDeleteType="yes"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -63,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="3268" y="134"/>
         </scene>
-        <!--To-Do list-->
+        <!--My To Do list-->
         <scene sceneID="XP9-8z-Rnx">
             <objects>
                 <tableViewController id="9fX-7C-w4e" customClass="ItemTableViewController" customModule="ToDo_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -100,7 +102,7 @@
                             <outlet property="delegate" destination="9fX-7C-w4e" id="ehg-af-yNh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="To-Do list" id="zNr-2I-CVa">
+                    <navigationItem key="navigationItem" title="My To Do list" id="zNr-2I-CVa">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PNj-h7-RbU">
                             <connections>
                                 <segue destination="tsW-vg-irJ" kind="show" id="dRI-nv-zDY"/>

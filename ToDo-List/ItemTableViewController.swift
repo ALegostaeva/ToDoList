@@ -13,13 +13,13 @@ class ItemTableViewController: UITableViewController {
     var items = [Item]()
     
     func loadSampleItems() {
-        items += [Item(name:"Item 1"), Item(name:"Item 2"), Item(name:"Item 3")]
+        //items += [Item(name:"Item 1"), Item(name:"Item 2"), Item(name:"Item 3")]
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadSampleItems()
+        //loadSampleItems()
         
         navigationItem.leftBarButtonItem = editButtonItem
     }
