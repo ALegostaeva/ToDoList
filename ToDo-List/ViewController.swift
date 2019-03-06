@@ -10,11 +10,38 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var item: Item?
+    
+    @IBOutlet weak var nameItem: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if let item = item {
+            nameItem.text = item.name
+        }
     }
 
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        let isInAddMode = presentingViewController is UINavigationController
+        
+        if isInAddMode {
+            dismiss(animated: true, completion: nil)
+        } else {
+            navigationController!.popViewController(animated: true)
+        }
+        
+    }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if sender as AnyObject? === saveButton {
+            let name = nameItem.text ?? ""
+            item = Item(name: name)
+        }
+    }
+    
+    
+    
 }
 
