@@ -46,7 +46,7 @@ class ItemTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as! ItemTableViewCell
         
         let item = items[indexPath.row]
-        cell.nameLabel.text = item.name
+        cell.nameLabel.text = item.name + item.date
         
 
         return cell
@@ -65,6 +65,7 @@ class ItemTableViewController: UITableViewController {
                 tableView.insertRows(at: [newIndexPath], with: .bottom)
                 saveItems()
                 print("item added")
+                
             }
         }
     }

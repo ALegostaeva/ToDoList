@@ -18,14 +18,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-Dj-6AU">
-                                <rect key="frame" x="165" y="282" width="45" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-Dj-6AU">
+                                <rect key="frame" x="165" y="94" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do I need to do?" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nx3-5M-yDo">
-                                <rect key="frame" x="87" y="318" width="200" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IVu-Sj-fxT">
+                                <rect key="frame" x="20" y="208.5" width="335" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="dateItem"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="choosingDateItem:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="9Ji-ay-gLc"/>
+                                    <action selector="dateInstalled:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="8U3-cW-guG"/>
+                                </connections>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4v5-V5-eIZ">
+                                <rect key="frame" x="20" y="246" width="335" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="574076862.56327295">
+                                    <!--2019-03-12 09:47:42 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="568033200">
+                                    <!--2019-01-01 11:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="2840094000">
+                                    <!--2090-12-31 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChangedPickerItem:" destination="BYZ-38-t0r" eventType="valueChanged" id="m6l-uo-zC7"/>
+                                </connections>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do I need to do?" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nx3-5M-yDo">
+                                <rect key="frame" x="20" y="130" width="335" height="30"/>
                                 <accessibility key="accessibilityConfiguration" identifier="nameItem">
                                     <accessibilityTraits key="traits" adjustable="YES"/>
                                 </accessibility>
@@ -33,22 +59,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="yes" smartInsertDeleteType="yes"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="x4V-lr-HV1">
-                                <rect key="frame" x="73" y="356.5" width="229" height="311"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="311" id="YBR-A6-ALl"/>
-                                    <constraint firstAttribute="width" constant="229" id="sT8-TL-anu"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="x4V-lr-HV1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3ee-Vj-JFt"/>
-                            <constraint firstItem="x4V-lr-HV1" firstAttribute="top" secondItem="nx3-5M-yDo" secondAttribute="bottom" constant="8" id="GWc-xC-gW3"/>
-                            <constraint firstItem="nx3-5M-yDo" firstAttribute="top" secondItem="eP1-Dj-6AU" secondAttribute="bottom" constant="15.5" id="KBR-za-czU"/>
-                            <constraint firstItem="nx3-5M-yDo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="iwf-RV-x8k"/>
+                            <constraint firstItem="IVu-Sj-fxT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-110" id="3Ot-Pz-IH4"/>
+                            <constraint firstItem="nx3-5M-yDo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9Xq-UP-xvf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nx3-5M-yDo" secondAttribute="trailing" constant="20" id="9zJ-pr-si0"/>
+                            <constraint firstItem="IVu-Sj-fxT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EGI-E7-WHd"/>
+                            <constraint firstItem="nx3-5M-yDo" firstAttribute="top" secondItem="eP1-Dj-6AU" secondAttribute="bottom" constant="15" id="KBR-za-czU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IVu-Sj-fxT" secondAttribute="trailing" constant="20" id="PUs-ql-B3V"/>
+                            <constraint firstItem="4v5-V5-eIZ" firstAttribute="top" secondItem="IVu-Sj-fxT" secondAttribute="bottom" constant="-1" id="YLG-BU-cB7"/>
+                            <constraint firstItem="IVu-Sj-fxT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dw1-L0-GWo"/>
                             <constraint firstItem="eP1-Dj-6AU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mks-bJ-Gmn"/>
+                            <constraint firstItem="eP1-Dj-6AU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="rdX-le-lnp"/>
+                            <constraint firstItem="4v5-V5-eIZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="thj-yE-i7k"/>
                             <constraint firstItem="nx3-5M-yDo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="to9-KP-aqQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4v5-V5-eIZ" secondAttribute="trailing" constant="20" id="vaJ-7k-Psi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -65,8 +91,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateItem" destination="IVu-Sj-fxT" id="q2B-S9-eTO"/>
+                        <outlet property="datePickerItem" destination="4v5-V5-eIZ" id="gEs-GV-fTD"/>
                         <outlet property="nameItem" destination="nx3-5M-yDo" id="HQQ-Gs-59K"/>
                         <outlet property="saveButton" destination="AVy-pw-PmN" id="fCy-bn-xRH"/>
+                        <outlet property="view" destination="8bC-Xf-vdC" id="tc9-ef-f1s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -160,9 +189,6 @@
             <point key="canvasLocation" x="2530" y="134"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Image" width="236.16000366210938" height="316.55999755859375"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zEK-lk-0JZ"/>
     </inferredMetricsTieBreakers>
