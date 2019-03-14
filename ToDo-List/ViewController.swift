@@ -41,10 +41,22 @@ class ViewController: UIViewController {
          datePickerItem.isHidden = true
     }
     
+    static func tommorowDayToString () -> String {
+        
+        let tommorow = Date().addingTimeInterval(2)
+        let tommorowDateFormatter = DateFormatter()
+        
+        tommorowDateFormatter.dateStyle = .medium
+        
+        return (tommorowDateFormatter.string(from: tommorow))
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         datePickerItem.isHidden = true
+        dateItem.text = ViewController.tommorowDayToString()
         
         if let item = item {
             nameItem.text = item.name
@@ -66,7 +78,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if sender as AnyObject? === saveButton {
             let name = nameItem.text ?? ""
-            let date = dateItem.text ?? "\(Date().addingTimeInterval(1))"
+            let date = dateItem.text ?? "\(ViewController.tommorowDayToString())"
             item = Item(name: name, date: date)
         }
     }
